@@ -8,7 +8,7 @@ Intel / Apple Silicon
 ## Downloads
 To get started please run:
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/AkkeyLab/mac-auto-setup/master/download.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/zangxc/mac-auto-setup/master/download.sh)"
 ```
 
 ## Installation
