@@ -9,7 +9,7 @@
 
 Host github.com
 	HostName github.com
-	User git
+	User zangxc
 	PreferredAuthentications publickey
 	IdentityFile ~/.ssh/id_rsa
 	UseKeychain yes
