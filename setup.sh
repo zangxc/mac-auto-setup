@@ -11,7 +11,15 @@ EOS
 function command_exists {
   command -v "$1" >/dev/null
 }
-
+FILE=~/.ssh/id_rsa
+if [ -f "$FILE" ]; then
+  echo "$FILE exists. Skipping ssh key creation."
+else 
+  echo "Creating an SSH key for you..."
+  ssh-keygen -t rsa -b 4096
+  ssh-keygen -t rsa
+  chmod 600 ~/.ssh/id_rsa
+fi
 #
 # Copy git ssh config file
 #
@@ -26,8 +34,6 @@ case $input in
   echo "Skip"
   ;;
 [Yy]*)
-  ssh-keygen -t rsa
-  chmod 600 ~/.ssh/id_rsa
   eval $(ssh-agent)
   ssh-add ~/.ssh/id_rsa
   ssh-add -l
