@@ -15,8 +15,8 @@ echo " ----- Install web apps ------"
 sudo softwareupdate --install-rosetta
 
 brew install --cask keepassxc
-# brew tap AdoptOpenJDK/openjdk
-# brew install --cask adoptopenjdk
+brew tap AdoptOpenJDK/openjdk
+brew install --cask adoptopenjdk
 # brew install --cask android-studio
 brew install --cask docker
 brew install --cask google-chrome
@@ -38,6 +38,7 @@ brew install --cask clipy
 brew install --cask alfred
 brew install --cask sublime-text2
 brew install --cask karabiner-elements
+brew install python
 
 read -p 'Do you want to install license need apps ? [y/n]' input
 case $input in
