@@ -1,7 +1,7 @@
 #!/bin/bash
 cat <<EOS
 
- AkkeyLab
+ AkkeyLab-zangxc-fork
 
  The elapsed time does not matter.
  Because speed is important.
@@ -37,6 +37,7 @@ brew install --cask notion
 brew install --cask clipy
 brew install --cask alfred
 brew install --cask sublime-text2
+brew install --cask karabiner-elements
 
 read -p 'Do you want to install license need apps ? [y/n]' input
 case $input in
