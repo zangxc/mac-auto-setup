@@ -36,6 +36,7 @@ brew install --cask notion
 # brew install --cask postman
 brew install --cask clipy
 brew install --cask alfred
+brew install --cask sublime-text2
 
 read -p 'Do you want to install license need apps ? [y/n]' input
 case $input in
