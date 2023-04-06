@@ -55,14 +55,24 @@ fi
 # Install zsh
 #
 if [ ! -e "$(brew --prefix)/bin/zsh" ]; then
-  echo " ------------ zsh ------------"
-  brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
-  which -a zsh
-  echo $pass | sudo -S -- sh -c 'echo "$(brew --prefix)/bin/zsh" >> /etc/shells'
-  # This is a workaround for problems that Xcode and others may refer to
-  echo $pass | sudo sh -c "mkdir -p /usr/local/bin & ln -s $(brew --prefix)/bin/zsh /usr/local/bin/zsh"
-  chsh -s "$(brew --prefix)/bin/zsh"
-  echo " ------------ END ------------"
+#   echo " ------------ zsh ------------"
+#   brew install zsh zsh-autosuggestions zsh-completions zsh-syntax-highlighting colordiff
+#   which -a zsh
+#   echo $pass | sudo -S -- sh -c 'echo "$(brew --prefix)/bin/zsh" >> /etc/shells'
+#   # This is a workaround for problems that Xcode and others may refer to
+#   echo $pass | sudo sh -c "mkdir -p /usr/local/bin & ln -s $(brew --prefix)/bin/zsh /usr/local/bin/zsh"
+#   chsh -s "$(brew --prefix)/bin/zsh"
+#   echo " ------------ END ------------"
+#Install Zsh & Oh My Zsh
+  echo "Installing Oh My ZSH..."
+  curl -L http://install.ohmyz.sh | sh
+
+  echo "Setting up Zsh plugins..."
+  cd ~/.oh-my-zsh/custom/plugins
+  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+
+  echo "Setting ZSH as shell..."
+  chsh -s /bin/zsh
 fi
 
 #
