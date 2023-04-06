@@ -1,7 +1,7 @@
 #!/bin/bash
 cat <<EOS
 
- AkkeyLab
+ AkkeyLab-zangxc-fork
 
  The elapsed time does not matter.
  Because speed is important.
@@ -129,52 +129,52 @@ fi
 #
 # Install ruby
 #
-if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
-  echo " ----------- Ruby ------------"
-  # No longer bundle 3rd party sources
-  # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
-  brew install libyaml ruby-build
-  echo -e "export RUBY_CONFIGURE_OPTS=\"--with-openssl-dir=$(brew --prefix openssl@1.1)\"" >>~/.yadr/zsh/private.zsh
-  source ~/.zshrc
+# if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/ruby" ]; then
+#   echo " ----------- Ruby ------------"
+#   # No longer bundle 3rd party sources
+#   # https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released
+#   brew install libyaml ruby-build
+#   echo -e "export RUBY_CONFIGURE_OPTS=\"--with-openssl-dir=$(brew --prefix openssl@1.1)\"" >>~/.yadr/zsh/private.zsh
+#   source ~/.zshrc
 
-  asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
-  ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
-  asdf install ruby $ruby_latest
-  asdf global ruby $ruby_latest
-  asdf reshim ruby
-  ruby -v
-  where ruby
-  asdf which ruby
+#   asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
+#   ruby_latest=$(asdf list all ruby | grep -v '[a-z]' | tail -1 | sed 's/ //g')
+#   asdf install ruby $ruby_latest
+#   asdf global ruby $ruby_latest
+#   asdf reshim ruby
+#   ruby -v
+#   where ruby
+#   asdf which ruby
 
-  # https://github.com/asdf-vm/asdf-ruby#migrating-from-another-ruby-version-manager
-  echo "legacy_version_file = yes" >~/.asdfrc
-  echo " ------------ END ------------"
-fi
+#   # https://github.com/asdf-vm/asdf-ruby#migrating-from-another-ruby-version-manager
+#   echo "legacy_version_file = yes" >~/.asdfrc
+#   echo " ------------ END ------------"
+# fi
 
-#
-# Install Golang
-#
-if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
-  echo " ---------- Golang -----------"
-  asdf plugin add golang https://github.com/kennyp/asdf-golang
-  golang_latest=$(asdf list all golang | grep -v '[a-z]' | tail -1 | sed 's/ //g')
-  asdf install golang $golang_latest
-  asdf global golang $golang_latest
-  asdf reshim golang
-  go version
-  where go
-  asdf which go
+# #
+# # Install Golang
+# #
+# if [ ! -e "$(echo ~$USERNAME)/.asdf/shims/go" ]; then
+#   echo " ---------- Golang -----------"
+#   asdf plugin add golang https://github.com/kennyp/asdf-golang
+#   golang_latest=$(asdf list all golang | grep -v '[a-z]' | tail -1 | sed 's/ //g')
+#   asdf install golang $golang_latest
+#   asdf global golang $golang_latest
+#   asdf reshim golang
+#   go version
+#   where go
+#   asdf which go
 
-  go install golang.org/x/tools/gopls@latest
-  go install github.com/go-delve/delve/cmd/dlv@latest
-  go install github.com/cweill/gotests/...@latest
-  asdf reshim golang
+#   go install golang.org/x/tools/gopls@latest
+#   go install github.com/go-delve/delve/cmd/dlv@latest
+#   go install github.com/cweill/gotests/...@latest
+#   asdf reshim golang
 
-  # GOPATH -> https://github.com/kennyp/asdf-golang/blob/master/bin/exec-env
-  # echo -e 'export GOPATH=$(asdf where golang)/go' >>~/.yadr/zsh/private.zsh
-  # echo -e 'export PATH="$PATH:$GOPATH"' >>~/.yadr/zsh/private.zsh
-  echo " ------------ END ------------"
-fi
+#   # GOPATH -> https://github.com/kennyp/asdf-golang/blob/master/bin/exec-env
+#   # echo -e 'export GOPATH=$(asdf where golang)/go' >>~/.yadr/zsh/private.zsh
+#   # echo -e 'export PATH="$PATH:$GOPATH"' >>~/.yadr/zsh/private.zsh
+#   echo " ------------ END ------------"
+# fi
 
 #
 # gitmoji-cli
